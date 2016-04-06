@@ -687,8 +687,8 @@ public class MyApplicationInterface implements ApplicationInterface {
     				}
     			}
 				// Danny Ofir - I put the videoFileName and put extra here
-				String videoFileName = main_activity.getPreview().getLastVideoFileName();
-				output.putExtra("filename", videoFileName);
+//				String videoFileName = main_activity.getPreview().getLastVideoFileName();
+//				output.putExtra("filename", videoFileName);
             	main_activity.setResult(done ? Activity.RESULT_OK : Activity.RESULT_CANCELED, output);
             	main_activity.finish();
     		}
