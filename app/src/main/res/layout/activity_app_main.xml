@@ -10,6 +10,11 @@
     android:orientation="vertical"
     tools:context="com.dannyofir.www.opencameratest10.AppMainActivity">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextWatermark"/>
+
 
     <Button
         android:layout_width="wrap_content"
@@ -22,6 +27,5 @@
         android:layout_height="wrap_content"
         android:text="Send Video to FFMPEG"
         android:id="@+id/sendVideoForEditing"/>
-
 
 </LinearLayout>

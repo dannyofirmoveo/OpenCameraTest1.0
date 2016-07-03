@@ -3,24 +3,34 @@ package com.dannyofir.www.opencameratest10;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import java.io.File;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class AppMainActivity extends AppCompatActivity {
 
     private String lastFilePath;
+    private EditText convertText;
+    private Bitmap picture;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_main);
+
+        convertText = (EditText) findViewById(R.id.editTextWatermark);
 
         Button openCameraButton = (Button) findViewById(R.id.openCameraButton);
         openCameraButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +53,8 @@ public class AppMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                new FFMPEGAsyncTask(AppMainActivity.this, lastFilePath, convertText.getText().toString()).execute();
+
             }
         });
 
@@ -56,9 +68,6 @@ public class AppMainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
 
             lastFilePath = getRealPathFromUri(this, data.getData());
-
-            new FFMPEGAsyncTask(this, lastFilePath).execute();
-
 
         }
 

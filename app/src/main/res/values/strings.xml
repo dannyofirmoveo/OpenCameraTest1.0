@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="facebook_app_id">239599899711824</string>
+    <string name="baseUrl">http://ec2-52-24-225-242.us-west-2.compute.amazonaws.com/api/</string>
+
     <string name="app_name">Open Camera Test</string>
     <string name="action_settings">Settings</string>
     <string name="action_popup">Popup settings</string>
